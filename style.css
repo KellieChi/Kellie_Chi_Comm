@@ -1,409 +1,622 @@
-<!DOCTYPE html>
-<html lang="uk">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+/* ОБНУЛЕННЯ СТИЛІВ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
 
-<title>Kellie Chi Commissions</title>
+:root {
+    --bg-dark: #0a1118;       /* Глибока морська вода */
+    --card-bg: #111e29;       /* Світліша хвиля */
+    --cyan-glow: #3cd4df;     /* Яскрава бірюза */
+    --sand-gold: #f3cd8c;     /* Жовтий теплий пісок */
+    --text-main: #e2f1f5;     /* Чистий світлий відтінок */
+    --desc-accent: #a3f4ff;   /* Ніжно-бірюзовий колір для підсвічування описів */
+}
 
-<!-- Підключення стилів -->
-<link rel="stylesheet" href="style.css" />
-<!-- Шрифти Google -->
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
-</head>
-<body>
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Montserrat', sans-serif;
+    padding-bottom: 60px;
+    overflow-x: hidden; /* Захист від горизонтального скролу */
+}
 
-<!-- ================= HEADER ================= -->
-<header class="profile-banner">
-  
-  <!-- БАНЕР ВСТАВЛЕНО ТУТ (ОБОВ'ЯЗКОВО ПЕРЕД ІНШИМ КОНТЕНТОМ) -->
-  <img src="https://github.com/KellieChi/site-images/blob/main/imgbanner.png?raw=true" class="profile-banner-img" alt="Profile Banner" />
+/* ГОЛОВНИЙ БАНЕР */
+.profile-banner {
+    position: relative;
+    height: 350px;
+    background: linear-gradient(rgba(10, 17, 24, 0.2), rgba(10, 17, 24, 0.6)), 
+                url('https://media.discordapp.net/attachments/944266867281895426/1522005694205657098/IMG_20260613_162310_205.jpg?ex=6a576082&is=6a560f02&hm=861300d05b5212496a430761953e3409861430876bc7327c5392fd64b1181ce1&format=webp&width=2239&height=1218');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+    padding: 40px;
+    border-bottom: 3px solid var(--cyan-glow);
+    overflow: hidden;
+}
 
-  <div class="banner-overlay"></div>
-  
-  <div class="profile-info">
-    <div class="avatar-container">
-      <img src="https://github.com/KellieChi/site-images/blob/main/imgava.jpg?raw=true" class="profile-avatar-img" alt="Avatar" />
-    </div>
-    <div class="profile-text">
-      <h1 class="profile-name">Kellie_Chi</h1>
-      <p class="sub-tags">2D Artist | 3D Artist | Animator | Programmer</p>
-      <div class="status-badge">Commissions: OPEN</div>
-    </div>
-  </div>
-</header>
-  
-<!-- ================= НАВІГАЦІЯ ================= -->
-<nav class="site-nav">
-  <button class="nav-btn active" data-target="prices">Commissions Price</button>
-  <button class="nav-btn" data-target="gallery">Gallery</button>
-  <button class="nav-btn" data-target="tos">TOS</button>
-</nav>
+.banner-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to top, rgba(10, 17, 24, 0.85) 0%, rgba(10, 17, 24, 0.1) 100%);
+    z-index: 1;
+}
 
-<!-- ================= ГОЛОВНИЙ КОНТЕНТ ================= -->
-<main class="main-container">
+.profile-info {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    z-index: 2;
+    width: 100%;
+}
 
-  <!-- ================= ЦІНИ ================= -->
-  <section id="prices" class="page-section active-section">
-    <h2 class="section-title">✨ Price List</h2>
+/* АВАТАРКА */
+.avatar-container {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 3.5px solid var(--sand-gold);
+    background-color: var(--card-bg);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 25px rgba(243, 205, 140, 0.4);
+    flex-shrink: 0;
+}
 
-    <!-- Категорія: Cartoon / Anime Style -->
-    <div class="price-category-group">
-      <h3 class="category-header">₊˚ Cartoon / Anime Style ₊˚</h3>
-      <div class="grid-container row-grid">
-        <!-- Карточка: Flat Colour -->
-        <div class="art-card">
-          <div class="card-banner-slot">
-            <img src="https://github.com/KellieChi/site-images/blob/main/img4.png?raw=true" />
-          </div>
-          <h3>Flat Colour</h3>
-          <p class="card-desc highlight-desc">Clean lineart with solid colors & minimal gradients.</p>
-          <div class="price-tier">
-            <p>Headshot: <span>20$</span></p>
-            <p>Halfbody: <span>40$</span></p>
-            <p>Fullbody: <span>60$</span></p>
-          </div>
-        </div>
-        <!-- Карточка: Render & Shading -->
-        <div class="art-card">
-          <div class="card-banner-slot">
-            <img src="https://github.com/KellieChi/site-images/blob/main/img1.jpg?raw=true" />
-          </div>
-          <h3>Render & Shading</h3>
-          <p class="card-desc highlight-desc">Detailed shading, highlights and volumetric light.</p>
-          <div class="price-tier">
-            <p>Headshot: <span>30$</span></p>
-            <p>Halfbody: <span>50$</span></p>
-            <p>Fullbody: <span>80$</span></p>
-          </div>
-        </div>
-      </div>
-    </div>
+.profile-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
-    <!-- ================= ЧИБІ + РЕФ ================= -->
-    <div class="desktop-split-row">
-      <div class="price-category-group">
-        <h3 class="category-header">₊˚ Chibi Style ₊˚</h3>
-        <div class="art-card">
-          <div class="card-banner-slot">
-            <img src="https://github.com/KellieChi/site-images/blob/main/img3.png?raw=true" />
-          </div>
-          <h3>Chibi</h3>
-          <p class="card-desc highlight-desc">Cute, rendered and stylized proportions.</p>
-          <div class="price-tier">
-            <p>Halfbody: <span>25$</span></p>
-            <p>Fullbody: <span>40$</span></p>
-            <p>Fullbody Ref Sheet: <span>40$</span></p>
-            <p>Custom Chibi: <span>50$</span></p>
-          </div>
-        </div>
-      </div>
+.profile-text {
+    flex-grow: 1;
+}
 
-      <div class="price-category-group">
-        <h3 class="category-header">₊˚ Refs & Customs ₊˚</h3>
-        <div class="art-card">
-          <div class="card-banner-slot">
-            <img src="https://github.com/KellieChi/site-images/blob/main/img2.png?raw=true" />
-          </div>
-          <h3>Refs & Customs</h3>
-          <p class="card-desc highlight-desc">Base contains: Fullbody, Headshot, Palette & Info.</p>
-          <div class="price-tier">
-            <p>Flat Colour Ref: <span>70$</span></p>
-            <p>Flat Colour Custom: <span>80$</span></p>
-            <p>Rendered Ref: <span>100$</span></p>
-            <p>Rendered Custom: <span>110$</span></p>
-          </div>
-        </div>
-      </div>
-    </div>
+.profile-name {
+    font-family: "Comic Sans MS", "Comic Sans", "Chalkboard SE", "Comic Neue", cursive !important;
+    font-size: 4.2rem;
+    font-weight: 900;
+    letter-spacing: -1px;
+    display: inline-block;
+    background: linear-gradient(to right, #ffff92 15%, #9ffefe 50%, #74d4ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(4px 4px 0px var(--bg-dark));
+}
 
-    <!-- ================= ДОДАТКОВІ ЗБІЛЬНІ ВАРТІСТІ ================= -->
-    <div class="bg-pricing-box">
-      <h3 class="bg-box-title">₊˚ Additional Fees ₊˚</h3>
-      <div class="price-tier">
-        <p>Perspective: <span>+40% of total</span></p>
-        <p>Complex Design (patterns, details, heavy clothes): <span>+30% of base</span></p>
-        <p>Extra Character: <span>+80% of base</span></p>
-        <p>Additional Props (bike, weapon, pet): <span>Negotiable</span></p>
-      </div>
-    </div>
+.sub-tags {
+    color: #94b2c5;
+    margin-top: 5px;
+    font-weight: 500;
+    text-shadow: 0 1px 5px rgba(0,0,0,0.5);
+}
 
-    <!-- ================= ДОДАТКОВІ РЕФ ШІТИ ================= -->
-    <div class="bg-pricing-box">
-      <h3 class="bg-box-title">₊˚ Ref Sheets Add-ons ₊˚</h3>
-      <div class="price-tier">
-        <p>Extra Headshot: <span>25$ / 15$</span></p>
-        <p>Extra Halfbody: <span>40$ / 30$</span></p>
-        <p>Extra Fullbody: <span>60$ / 40$</span></p>
-        <p>Additional Prop: <span>15-35$ / 10-30$</span></p>
-        <p>Extra Chibi Fullbody: <span>30$ / 20$</span></p>
-      </div>
-    </div>
+.status-badge {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.85rem;
+    background: rgba(60, 212, 223, 0.2);
+    border: 1px solid var(--cyan-glow);
+    color: var(--cyan-glow);
+    box-shadow: 0 0 10px rgba(60, 212, 223, 0.2);
+}
 
-    <!-- ================= ФОНОВА ПРОПОЗИЦІЯ ================= -->
-    <div class="bg-pricing-box">
-      <h3 class="bg-box-title">₊˚ Backgrounds & Environments ₊˚</h3>
-      <p class="bg-box-intro">
-        Simple colors, abstract figures, or gradients are
-        <span class="free-badge">FREE</span>!
-      </p>
-      <div class="bg-tiers-grid">
-        <!-- Простий фон -->
-        <div class="bg-tier-card">
-          <h4>♡ Simple</h4>
-          <div class="bg-price">15$ — 20$</div>
-          <p>Clouds, water surface, simple mountains or abstract backgrounds.</p>
-        </div>
-        <!-- Середній рівень -->
-        <div class="bg-tier-card">
-          <h4>♡ Mid</h4>
-          <div class="bg-price">30$ — 50$</div>
-          <p>Nature, forests, rooms and simple environments.</p>
-        </div>
-        <!-- Складний -->
-        <div class="bg-tier-card">
-          <h4>♡ Hard</h4>
-          <div class="bg-price">50$ — 100$</div>
-          <p>Architecture, interiors, complex perspective scenes.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+/* НАВІГАЦІЯ */
+.site-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 0;
+    padding: 0 20px;
+}
 
-  <!-- ================= ГАЛЕРЕЯ ================= -->
-  <section id="gallery" class="page-section">
-    <h2 class="section-title">◊ Gallery</h2>
-    <div class="gallery-nav">
-      <button class="nav-btn gallery-btn active" data-cat="all">All</button>
-      <button class="nav-btn gallery-btn" data-cat="humanoid">Humanoid/Human</button>
-      <button class="nav-btn gallery-btn" data-cat="anthro">Anthro/Furry</button>
-      <button class="nav-btn gallery-btn" data-cat="feral">Animal/Feral</button>
-    </div>
-    <div class="gallery-grid">
-      <!-- Галерея елементів -->
-      <div class="gallery-item anthro">
-        <img src="https://github.com/KellieChi/site-images/blob/main/imgp5.png?raw=true" />
-        <div class="img-hint">Click to enlarge</div>
-      </div>
-      <div class="gallery-item anthro">
-        <img src="https://github.com/KellieChi/site-images/blob/main/imgp4.png?raw=true" />
-        <div class="img-hint">Click to enlarge</div>
-      </div>
-      <div class="gallery-item feral">
-        <img src="https://github.com/KellieChi/site-images/blob/main/imgp12%20(1).png?raw=true" />
-        <div class="img-hint">Click to enlarge</div>
-      </div>
-      <div class="gallery-item anthro">
-        <img src="https://github.com/KellieChi/site-images/blob/main/imgp2.png?raw=true" />
-        <div class="img-hint">Click to enlarge</div>
-      </div>
-      <div class="gallery-item anthro">
-        <img src="https://github.com/KellieChi/site-images/blob/main/imgp3.png?raw=true" />
-        <div class="img-hint">Click to enlarge</div>
-      </div>
-      <div class="gallery-item feral">
-        <img src="https://github.com/KellieChi/site-images/blob/main/imgp33.jpg?raw=true" />
-        <div class="img-hint">Click to enlarge</div>
-      </div>
-      <div class="gallery-item humanoid">
-        <img src="https://github.com/KellieChi/site-images/blob/main/imgp16.png?raw=true" />
-        <div class="img-hint">Click to enlarge</div>
-      </div>
-      <div class="gallery-item humanoid">
-        <img src="https://github.com/KellieChi/site-images/blob/main/imgp15.jpg?raw=true" />
-        <div class="img-hint">Click to enlarge</div>
-      </div>
-      <div class="gallery-item humanoid">
-        <img src="https://github.com/KellieChi/site-images/blob/main/imgbanner.png?raw=true" />
-        <div class="img-hint">Click to enlarge</div>
-      </div>
-      <div class="gallery-item humanoid">
-        <img src="https://github.com/KellieChi/site-images/blob/main/imgpIDK.png?raw=true" />
-        <div class="img-hint">Click to enlarge</div>
-      </div>
-      <div class="gallery-item humanoid">
-        <img src="https://github.com/KellieChi/site-images/blob/main/imgp14.png?raw=true" />
-        <div class="img-hint">Click to enlarge</div>
-      </div>
-      <div class="gallery-item feral">
-        <img src="https://github.com/KellieChi/site-images/blob/main/imgp17.png?raw=true" />
-        <div class="img-hint">Click to enlarge</div>
-      </div>
-      <div class="gallery-item anthro">
-        <img src="https://github.com/KellieChi/site-images/blob/main/img2.png?raw=true" />
-        <div class="img-hint">Click to enlarge</div>
-      </div>
-      <!-- Решта картин -->
-      <div class="gallery-item anthro">
-        <img src="https://github.com/KellieChi/site-images/blob/main/imgp10.png?raw=true" />
-        <div class="img-hint">Click to enlarge</div>
-      </div>
-      <div class="gallery-item anthro">
-        <img src="https://github.com/KellieChi/site-images/blob/main/imgp18.png?raw=true" />
-        <div class="img-hint">Click to enlarge</div>
-      </div>
-      <div class="gallery-item anthro">
-        <img src="https://github.com/KellieChi/site-images/blob/main/imgp21.png?raw=true" />
-        <div class="img-hint">Click to enlarge</div>
-      </div>
-      <div class="gallery-item anthro">
-        <img src="https://github.com/KellieChi/site-images/blob/main/imgp6.png?raw=true" />
-        <div class="img-hint">Click to enlarge</div>
-      </div>
-      <div class="gallery-item anthro">
-        <img src="https://github.com/KellieChi/site-images/blob/main/imgp7.png?raw=true" />
-        <div class="img-hint">Click to enlarge</div>
-      </div>
-      <div class="gallery-item anthro">
-        <img src="https://github.com/KellieChi/site-images/blob/main/imgp8.png?raw=true" />
-        <div class="img-hint">Click to enlarge</div>
-      </div>
-      <div class="gallery-item anthro">
-        <img src="https://github.com/KellieChi/site-images/blob/main/imgp91.png?raw=true" />
-        <div class="img-hint">Click to enlarge</div>
-      </div>
-      <div class="gallery-item anthro">
-        <img src="https://github.com/KellieChi/site-images/blob/main/imgp20.jpg?raw=true" />
-        <div class="img-hint">Click to enlarge</div>
-      </div>
-      <div class="gallery-item anthro">
-        <img src="https://d.furaffinity.net/art/kelliechi/1758737032/1758737032.kelliechi_catty__1_.png" />
-        <div class="img-hint">Click to enlarge</div>
-      </div>
-      <div class="gallery-item anthro">
-        <img src="https://d.furaffinity.net/art/kelliechi/1756245738/1756245738.kelliechi_1000004615.png" />
-        <div class="img-hint">Click to enlarge</div>
-      </div>
-      <div class="gallery-item anthro">
-        <img src="https://d.furaffinity.net/art/kelliechi/1779813957/1779813957.kelliechi_pride_ych__2_.png" />
-        <div class="img-hint">Click to enlarge</div>
-      </div>
-    </div>
-  </section>
+.nav-btn {
+    text-decoration: none;
+    color: var(--text-main);
+    padding: 10px 25px;
+    border-radius: 12px;
+    background: var(--card-bg);
+    border: 1px solid rgba(60, 212, 223, 0.2);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    outline: none;
+}
 
-  <!-- ================= TOS ================= -->
-  <section id="tos" class="page-section">
-    <h2 class="section-title">₊˚ Terms of Service ₊˚</h2>
-    <div class="tos-box">
-      <h3>General Terms</h3>
-      <ul>
-        <li>All images contain a small watermark.</li>
-        <li>I reserve the right to decline any commission for any reason.</li>
-        <li>I accept gore, suggestive themes and artistic nudity, but I do not draw pornography.</li>
-      </ul>
-      <h3>Payment</h3>
-      <ul>
-        <li>Payment is accepted via PayPal.</li>
-        <li>Usually payment is 100% upfront after sketch approval.</li>
-        <li>Prices listed are for personal use only.</li>
-      </ul>
-      <h3>Process & Delivery</h3>
-      <ul>
-        <li>Turnaround time depends on complexity.</li>
-        <li>Usual deadline is between 3 days and 6 months.</li>
-        <li>Because I am based in Ukraine, delays may occur.</li>
-        <li>You will receive updates during the process.</li>
-      </ul>
-      <h3>Revisions</h3>
-      <ul>
-        <li>Sketch stage: unlimited revisions.</li>
-        <li>After approval, major changes may require extra payment.</li>
-      </ul>
-      <h3>Refunds & Cancellation</h3>
-      <ul>
-        <li>No refunds after work has started.</li>
-        <li>If I cannot complete the commission, full refund will be provided.</li>
-      </ul>
-      <h3>Copyright & Usage Policy</h3>
-      <ul>
-        <li>I retain rights to the artwork.</li>
-        <li>I may post artwork in my portfolio.</li>
-        <li>Buyer may use artwork as avatar, personal print or social media image.</li>
-        <li>Removing watermark or claiming artwork as your own is prohibited.</li>
-      </ul>
-    </div>
-  </section>
+.nav-btn:hover, .nav-btn.active {
+    background: var(--cyan-glow);
+    color: #000;
+    box-shadow: 0 0 15px rgba(60, 212, 223, 0.4);
+    border-color: var(--cyan-glow);
+}
 
-</main>
+/* ГОЛОВНИЙ КОНТЕЙНЕР ОБМЕЖЕННЯ ШИРИНИ НА ПК */
+.main-container {
+    max-width: 1000px; 
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
-<!-- ================= МОДАЛЬНЕ ВІКНО ================= -->
-<div id="image-modal" class="modal">
-  <span class="modal-close">&times;</span>
-  <img id="modal-img" class="modal-content" />
-</div>
+.section-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    color: var(--sand-gold);
+    border-left: 4px solid var(--cyan-glow);
+    padding-left: 15px;
+}
 
-<!-- ================= FOOTER ================= -->
-<footer class="site-footer">
-  <div class="social-links">
-    <a href="https://www.instagram.com/kellie_.chi/" target="_blank" rel="noopener noreferrer" class="social-icon">Instagram</a>
-    <a href="https://www.tiktok.com/@kellie_chi" target="_blank" rel="noopener noreferrer" class="social-icon">TikTok</a>
-    <a href="https://trello.com/b/nuoIVslO/%E2%98%86kelliechi-commission-info%E2%98%86" target="_blank" rel="noopener noreferrer" class="social-icon">Trello</a>
-    <a href="https://www.furaffinity.net/user/kelliechi" target="_blank" rel="noopener noreferrer" class="social-icon">Furaffinity</a>
-    <a href="https://artfight.net/~Kellie_Chi" target="_blank" rel="noopener noreferrer" class="social-icon">Artfight</a>
-    <a href="https://web.telegram.org/k/#@Kellie_Chi_Nogitsune" target="_blank" rel="noopener noreferrer" class="social-icon">Telegram</a>
-  </div>
-  <p> 2026 Kellie_Chi. All rights reserved.</p>
-</footer>
-<!-- ================= JS ================= -->
-<script>
-// ===================== PAGE НАВІГАЦІЯ =====================
-const buttons = document.querySelectorAll(".site-nav .nav-btn");
-const pages = document.querySelectorAll(".page-section");
+/* КАТЕГОРІЇ ПРАЙСУ */
+.price-category-group {
+    margin-bottom: 30px;
+    width: 100%;
+}
 
-buttons.forEach(btn => {
-  btn.addEventListener("click", () => {
-    buttons.forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
-    const target = btn.dataset.target;
-    pages.forEach(page => {
-      page.classList.toggle("active-section", page.id === target);
-    });
-  });
-});
+.category-header {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.35rem;
+    color: var(--sand-gold);
+    margin-bottom: 15px;
+    border-bottom: 1.5px solid rgba(60, 212, 223, 0.15);
+    padding-bottom: 8px;
+    letter-spacing: 0.5px;
+}
 
-// ===================== ФІЛЬТРАЦІЯ ГАЛЕРЕЇ =====================
-const filterButtons = document.querySelectorAll(".gallery-btn");
-const galleryItems = document.querySelectorAll(".gallery-item");
+/* ДВОКОЛОНКОВИЙ РЯД ДЛЯ ЧІБІ ТА РЕФІВ НА ПК */
+.desktop-split-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 20px;
+}
 
-filterButtons.forEach(btn => {
-  btn.addEventListener("click", () => {
-    filterButtons.forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
-    const category = btn.dataset.cat;
-    galleryItems.forEach(item => {
-      if (category === "all" || item.classList.contains(category)) {
-        item.style.display = "block";
-      } else {
-        item.style.display = "none";
-      }
-    });
-  });
-});
+/* СІТКА ДЛЯ CARTOON / ANIME */
+.grid-container {
+    display: grid;
+    gap: 25px;
+}
 
-// ===================== МОДАЛЬ =====================
-const modal = document.getElementById("image-modal");
-const modalImg = document.getElementById("modal-img");
-const close = document.querySelector(".modal-close");
+.row-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
 
-galleryItems.forEach(item => {
-  const img = item.querySelector("img");
-  img.addEventListener("click", () => {
-    modal.style.display = "flex";
-    modalImg.src = img.src;
-  });
-});
+/* СТИЛЬ КАРТОК ПРАЙСУ */
+.art-card {
+    background: var(--card-bg);
+    border-radius: 18px;
+    border: 1px solid rgba(60, 212, 223, 0.15);
+    padding: 25px;
+    width: 100%;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
 
-close.onclick = () => {
-  modal.style.display = "none";
-};
+.art-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--cyan-glow);
+    box-shadow: 0 8px 20px rgba(60, 212, 223, 0.15);
+}
 
-modal.onclick = e => {
-  if (e.target === modal) modal.style.display = "none";
-};
+.card-banner-slot {
+    width: 100%;
+    height: 500px;
+    background: #182a3a;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #53758d;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 18px;
+    border: 1px dashed rgba(60, 212, 223, 0.3);
+    overflow: hidden; 
+}
 
-document.addEventListener("keydown", e => {
-  if (e.key === "Escape") modal.style.display = "none";
-});
-</script>
-</body>
-</html>
+.card-banner-slot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.art-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    color: var(--text-main);
+}
+
+/* ПІДСВІЧЕННЯ ТЕКСТУ-ОПИСУ КАТЕГОРІЇ */
+.card-desc.highlight-desc {
+    color: var(--desc-accent);
+    font-size: 0.9rem;
+    line-height: 1.45;
+    margin-bottom: 15px;
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(163, 244, 255, 0.15);
+}
+
+.price-tier p {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.price-tier span {
+    color: var(--sand-gold);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* ГАЛЕРЕЯ */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Це зафіксує рівно 3 колонки */
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    width: 100%;        /* Гарантує, що елемент займає всю ширину колонки */
+    aspect-ratio: 1 / 1; /* Робить елемент квадратом (ширина = висоті) */
+    background: #182a3a;
+    border-radius: 14px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+    border-color: var(--cyan-glow);
+    box-shadow: 0 0 20px rgba(60, 212, 223, 0.2);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.img-hint {
+    position: absolute;
+    bottom: 0; width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    padding: 8px;
+    font-size: 0.85rem;
+    opacity: 0; 
+    transition: opacity 0.3s;
+}
+
+.gallery-item:hover .img-hint {
+    opacity: 1;
+}
+
+/* TOS */
+.tos-box {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 30px;
+    border-left: 4px solid var(--sand-gold);
+}
+
+.tos-box h3 {
+    color: var(--sand-gold);
+    margin: 20px 0 10px 0;
+}
+
+.tos-box h3:first-child { margin-top: 0; }
+
+.tos-box ul {
+    list-style-position: inside;
+    color: #b0cbdc;
+}
+
+.tos-box li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+/* БЛОК БЕКГРАУНДІВ */
+.bg-pricing-box {
+    margin-top: 30px;
+    background-color: var(--card-bg);
+    border: 1.5px dashed rgba(60, 212, 223, 0.4);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
+    width: 100%;
+}
+
+.bg-box-title {
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--sand-gold);
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+}
+
+.bg-box-intro {
+    color: #94b2c5;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+
+.free-badge {
+    color: var(--cyan-glow);
+    font-weight: 700;
+    text-shadow: 0 0 8px rgba(60, 212, 223, 0.4);
+}
+
+.bg-tiers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.bg-tier-card {
+    background: #0f1c27;
+    border-radius: 12px;
+    padding: 18px;
+    border: 1px solid rgba(60, 212, 223, 0.15);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.bg-tier-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--cyan-glow);
+}
+
+.bg-tier-card h4 {
+    color: var(--sand-gold);
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.bg-price {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--cyan-glow);
+    margin-bottom: 10px;
+}
+
+.bg-tier-card p {
+    color: #b0cbdc;
+    font-size: 0.85rem;
+    line-height: 1.45;
+}
+
+/* ФУТЕР */
+.site-footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 30px;
+    border-top: 1px solid rgba(60, 212, 223, 0.1);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.social-icon {
+    color: var(--cyan-glow);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: var(--sand-gold);
+}
+
+/* МОДАЛКА */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0; width: 100%; height: 100%;
+    background-color: rgba(10, 17, 24, 0.95);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 12px;
+    border: 2px solid var(--cyan-glow);
+    box-shadow: 0 0 30px rgba(60, 212, 223, 0.3);
+    animation: zoomIn 0.3s ease;
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px; right: 35px;
+    color: var(--text-main);
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.modal-close:hover { color: var(--cyan-glow); }
+
+@keyframes zoomIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* ДИНАМІЧНІ СЕКЦІЇ ТА ПЛАВНІСТЬ */
+.page-section {
+    display: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.page-section.active-section {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* АДАТИВНІСТЬ ТА МЕДІА-ЗАПИТИ */
+@media (max-width: 850px) {
+    .desktop-split-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .profile-banner { 
+        height: auto; 
+        padding: 40px 20px; 
+        flex-direction: column; 
+        align-items: center; 
+        text-align: center;
+    }
+    .profile-info { 
+        flex-direction: column; 
+        gap: 15px; 
+        align-items: center;
+    }
+    .profile-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .profile-name {
+        font-size: 3rem; /* Захист від вилізання за край */
+    }
+    .site-nav { 
+        flex-wrap: wrap; 
+        gap: 10px;
+    }
+    .nav-btn {
+        padding: 8px 18px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-name {
+        font-size: 2.4rem; /* Оптимально для крихітних екранів */
+    }
+}
+/* АДАПТАЦІЯ ВИКЛЮЧНО ДЛЯ ТЕЛЕФОНІВ ТА НЕВЕЛИКИХ ПЛАНШЕТІВ */
+@media (max-width: 768px) {
+    .card-banner-slot {
+        height: 250px !important;
+    }
+    .gallery-item {
+        height: 200px !important;
+    }
+
+    .section-title {
+        font-size: 1.5rem !important;
+    }
+}
+/* Стабільна сітка для 20+ артів */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+    margin-top: 20px;
+    align-items: start; /* Це не дасть їм розтягуватися */
+}
+
+/* Щоб картинки завжди були одного розміру */
+.gallery-item {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+}
+  /* Приховування елементів при фільтрації */
+.gallery-item[style*="display: none"] {
+    display: none !important;
+}
+
+/* Корекція кнопок галереї, щоб вони не зливалися з основними */
+.gallery-btn {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.gallery-item.hidden{
+    display:none !important;
+}
+/* Батьківський контейнер для всього хедера */
+.profile-banner {
+  position: relative;
+  width: 100%;
+  border-radius: 25px; /* Задайте тут ваш радіус, який у вас є для неону */
+  overflow: hidden;    /* Найважливіше: обрізає все, що вилазить за рамку */
+  /* Можливо, вам потрібно буде задати фіксовану висоту, якщо вона ще не задана */
+  /* min-height: 350px; */ 
+}
+
+/* Стилі для самого зображення банера */
+.profile-banner-img {
+  position: absolute; /* Абсолютне позиціонування, щоб воно було "приклеєне" */
+  top: 0;
+  left: 0;
+  width: 100%;        /* Розтягує на всю ширину */
+  height: 100%;       /* Розтягує на всю висоту блоку */
+  object-fit: cover;  /* Обрізає зайве, зберігаючи пропорції картинки (важливо!) */
+  z-index: -1;        /* Ставить зображення ЗА іншим контентом (аватар, текст) */
+  pointer-events: none; /* Забороняє взаємодію з картинкою (щоб не тягали мишкою) */
+}
+
+/* Стилі для контенту (аватар, текст) - щоб вони були поверх банера */
+.profile-info {
+  position: relative;
+  z-index: 1; /* Робить контент видимим поверх банера */
+  display: flex;
+  align-items: center;
+  padding: 30px; /* Ваші відступи */
+}
+
+/* Стилі для оверлея (якщо він у вас є, щоб затемнити банер) */
+.banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-color: rgba(0,0,0,0.3); */ /* Якщо ви використовуєте темний оверлей */
+  z-index: 0; /* Між банером і текстом */
+}
