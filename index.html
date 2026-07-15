@@ -1,66 +1,404 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Art Commissions & Prices</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Kellie Chi Commissions</title>
+
+<!-- Підключення стилів -->
+<link rel="stylesheet" href="style.css" />
+<!-- Шрифти Google -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-    <header>
-        <h1 class="neon-text">ART COMMISSIONS</h1>
-        <p class="status">Status: Open</p>
-    </header>
+<!-- ================= HEADER ================= -->
+<header class="profile-banner">
+  <div class="banner-overlay"></div>
+  <div class="profile-info">
+    <div class="avatar-container">
+      <img src="https://github.com/KellieChi/site-images/blob/main/imgava.jpg?raw=true" class="profile-avatar-img" alt="Avatar" />
+    </div>
+    <div class="profile-text">
+      <h1 class="profile-name">Kellie_Chi</h1>
+      <p class="sub-tags">2D Artist | 3D Artist | Animator | Programmer</p>
+      <div class="status-badge">Commissions: OPEN</div>
+    </div>
+  </div>
+</header>
 
-    <main class="price-container">
-        <div class="price-card cyan">
-            <div class="card-header">
-                <h2>Chibi / Sketch</h2>
-                <div class="price">$20+</div>
-            </div>
-            <div class="card-body">
-                <ul>
-                    <li>Чистий лайн + простий колір</li>
-                    <li>Простий або прозорий фон</li>
-                    <li>Дедлайн: 3-5 днів</li>
-                </ul>
-                <button class="order-btn">Замовити</button>
-            </div>
+<!-- ================= НАВІГАЦІЯ ================= -->
+<nav class="site-nav">
+  <button class="nav-btn active" data-target="prices">Commissions Price</button>
+  <button class="nav-btn" data-target="gallery">Gallery</button>
+  <button class="nav-btn" data-target="tos">TOS</button>
+</nav>
+
+<!-- ================= ГОЛОВНИЙ КОНТЕНТ ================= -->
+<main class="main-container">
+
+  <!-- ================= ЦІНИ ================= -->
+  <section id="prices" class="page-section active-section">
+    <h2 class="section-title">✨ Price List</h2>
+
+    <!-- Категорія: Cartoon / Anime Style -->
+    <div class="price-category-group">
+      <h3 class="category-header">₊˚ Cartoon / Anime Style ₊˚</h3>
+      <div class="grid-container row-grid">
+        <!-- Карточка: Flat Colour -->
+        <div class="art-card">
+          <div class="card-banner-slot">
+            <img src="https://github.com/KellieChi/site-images/blob/main/img4.png?raw=true" />
+          </div>
+          <h3>Flat Colour</h3>
+          <p class="card-desc highlight-desc">Clean lineart with solid colors & minimal gradients.</p>
+          <div class="price-tier">
+            <p>Headshot: <span>20$</span></p>
+            <p>Halfbody: <span>40$</span></p>
+            <p>Fullbody: <span>60$</span></p>
+          </div>
         </div>
-
-        <div class="price-card pink featured">
-            <div class="badge">Popular</div>
-            <div class="card-header">
-                <h2>Half Body</h2>
-                <div class="price">$60+</div>
-            </div>
-            <div class="card-body">
-                <ul>
-                    <li>Повний покрас та шейдінг</li>
-                    <li>Нескладний фоновий ефект</li>
-                    <li>Дедлайн: 1-2 тижні</li>
-                </ul>
-                <button class="order-btn">Замовити</button>
-            </div>
+        <!-- Карточка: Render & Shading -->
+        <div class="art-card">
+          <div class="card-banner-slot">
+            <img src="https://github.com/KellieChi/site-images/blob/main/img1.jpg?raw=true" />
+          </div>
+          <h3>Render & Shading</h3>
+          <p class="card-desc highlight-desc">Detailed shading, highlights and volumetric light.</p>
+          <div class="price-tier">
+            <p>Headshot: <span>30$</span></p>
+            <p>Halfbody: <span>50$</span></p>
+            <p>Fullbody: <span>80$</span></p>
+          </div>
         </div>
+      </div>
+    </div>
 
-        <div class="price-card purple">
-            <div class="card-header">
-                <h2>Full Body / Scene</h2>
-                <div class="price">$120+</div>
-            </div>
-            <div class="card-body">
-                <ul>
-                    <li>Максимальна деталізація</li>
-                    <li>Складний кастомний фон</li>
-                    <li>Дедлайн: 2-3 тижні</li>
-                </ul>
-                <button class="order-btn">Замовити</button>
-            </div>
+    <!-- ================= ЧИБІ + РЕФ ================= -->
+    <div class="desktop-split-row">
+      <div class="price-category-group">
+        <h3 class="category-header">₊˚ Chibi Style ₊˚</h3>
+        <div class="art-card">
+          <div class="card-banner-slot">
+            <img src="https://github.com/KellieChi/site-images/blob/main/img3.png?raw=true" />
+          </div>
+          <h3>Chibi</h3>
+          <p class="card-desc highlight-desc">Cute, rendered and stylized proportions.</p>
+          <div class="price-tier">
+            <p>Halfbody: <span>25$</span></p>
+            <p>Fullbody: <span>40$</span></p>
+            <p>Fullbody Ref Sheet: <span>40$</span></p>
+            <p>Custom Chibi: <span>50$</span></p>
+          </div>
         </div>
-    </main>
+      </div>
 
+      <div class="price-category-group">
+        <h3 class="category-header">₊˚ Refs & Customs ₊˚</h3>
+        <div class="art-card">
+          <div class="card-banner-slot">
+            <img src="https://github.com/KellieChi/site-images/blob/main/img2.png?raw=true" />
+          </div>
+          <h3>Refs & Customs</h3>
+          <p class="card-desc highlight-desc">Base contains: Fullbody, Headshot, Palette & Info.</p>
+          <div class="price-tier">
+            <p>Flat Colour Ref: <span>70$</span></p>
+            <p>Flat Colour Custom: <span>80$</span></p>
+            <p>Rendered Ref: <span>100$</span></p>
+            <p>Rendered Custom: <span>110$</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= ДОДАТКОВІ ЗБІЛЬНІ ВАРТІСТІ ================= -->
+    <div class="bg-pricing-box">
+      <h3 class="bg-box-title">₊˚ Additional Fees ₊˚</h3>
+      <div class="price-tier">
+        <p>Perspective: <span>+40% of total</span></p>
+        <p>Complex Design (patterns, details, heavy clothes): <span>+30% of base</span></p>
+        <p>Extra Character: <span>+80% of base</span></p>
+        <p>Additional Props (bike, weapon, pet): <span>Negotiable</span></p>
+      </div>
+    </div>
+
+    <!-- ================= ДОДАТКОВІ РЕФ ШІТИ ================= -->
+    <div class="bg-pricing-box">
+      <h3 class="bg-box-title">₊˚ Ref Sheets Add-ons ₊˚</h3>
+      <div class="price-tier">
+        <p>Extra Headshot: <span>25$ / 15$</span></p>
+        <p>Extra Halfbody: <span>40$ / 30$</span></p>
+        <p>Extra Fullbody: <span>60$ / 40$</span></p>
+        <p>Additional Prop: <span>15-35$ / 10-30$</span></p>
+        <p>Extra Chibi Fullbody: <span>30$ / 20$</span></p>
+      </div>
+    </div>
+
+    <!-- ================= ФОНОВА ПРОПОЗИЦІЯ ================= -->
+    <div class="bg-pricing-box">
+      <h3 class="bg-box-title">₊˚ Backgrounds & Environments ₊˚</h3>
+      <p class="bg-box-intro">
+        Simple colors, abstract figures, or gradients are
+        <span class="free-badge">FREE</span>!
+      </p>
+      <div class="bg-tiers-grid">
+        <!-- Простий фон -->
+        <div class="bg-tier-card">
+          <h4>♡ Simple</h4>
+          <div class="bg-price">15$ — 20$</div>
+          <p>Clouds, water surface, simple mountains or abstract backgrounds.</p>
+        </div>
+        <!-- Середній рівень -->
+        <div class="bg-tier-card">
+          <h4>♡ Mid</h4>
+          <div class="bg-price">30$ — 50$</div>
+          <p>Nature, forests, rooms and simple environments.</p>
+        </div>
+        <!-- Складний -->
+        <div class="bg-tier-card">
+          <h4>♡ Hard</h4>
+          <div class="bg-price">50$ — 100$</div>
+          <p>Architecture, interiors, complex perspective scenes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ГАЛЕРЕЯ ================= -->
+  <section id="gallery" class="page-section">
+    <h2 class="section-title">◊ Gallery</h2>
+    <div class="gallery-nav">
+      <button class="nav-btn gallery-btn active" data-cat="all">All</button>
+      <button class="nav-btn gallery-btn" data-cat="humanoid">Humanoid/Human</button>
+      <button class="nav-btn gallery-btn" data-cat="anthro">Anthro/Furry</button>
+      <button class="nav-btn gallery-btn" data-cat="feral">Animal/Feral</button>
+    </div>
+    <div class="gallery-grid">
+      <!-- Галерея елементів -->
+      <div class="gallery-item anthro">
+        <img src="https://github.com/KellieChi/site-images/blob/main/imgp5.png?raw=true" />
+        <div class="img-hint">Click to enlarge</div>
+      </div>
+      <div class="gallery-item anthro">
+        <img src="https://github.com/KellieChi/site-images/blob/main/imgp4.png?raw=true" />
+        <div class="img-hint">Click to enlarge</div>
+      </div>
+      <div class="gallery-item feral">
+        <img src="https://github.com/KellieChi/site-images/blob/main/imgp12%20(1).png?raw=true" />
+        <div class="img-hint">Click to enlarge</div>
+      </div>
+      <div class="gallery-item anthro">
+        <img src="https://github.com/KellieChi/site-images/blob/main/imgp2.png?raw=true" />
+        <div class="img-hint">Click to enlarge</div>
+      </div>
+      <div class="gallery-item anthro">
+        <img src="https://github.com/KellieChi/site-images/blob/main/imgp3.png?raw=true" />
+        <div class="img-hint">Click to enlarge</div>
+      </div>
+      <div class="gallery-item feral">
+        <img src="https://github.com/KellieChi/site-images/blob/main/imgp33.jpg?raw=true" />
+        <div class="img-hint">Click to enlarge</div>
+      </div>
+      <div class="gallery-item humanoid">
+        <img src="https://github.com/KellieChi/site-images/blob/main/imgp16.png?raw=true" />
+        <div class="img-hint">Click to enlarge</div>
+      </div>
+      <div class="gallery-item humanoid">
+        <img src="https://github.com/KellieChi/site-images/blob/main/imgp15.jpg?raw=true" />
+        <div class="img-hint">Click to enlarge</div>
+      </div>
+      <div class="gallery-item humanoid">
+        <img src="https://github.com/KellieChi/site-images/blob/main/imgbanner.png?raw=true" />
+        <div class="img-hint">Click to enlarge</div>
+      </div>
+      <div class="gallery-item humanoid">
+        <img src="https://github.com/KellieChi/site-images/blob/main/imgpIDK.png?raw=true" />
+        <div class="img-hint">Click to enlarge</div>
+      </div>
+      <div class="gallery-item humanoid">
+        <img src="https://github.com/KellieChi/site-images/blob/main/imgp14.png?raw=true" />
+        <div class="img-hint">Click to enlarge</div>
+      </div>
+      <div class="gallery-item feral">
+        <img src="https://github.com/KellieChi/site-images/blob/main/imgp17.png?raw=true" />
+        <div class="img-hint">Click to enlarge</div>
+      </div>
+      <div class="gallery-item anthro">
+        <img src="https://github.com/KellieChi/site-images/blob/main/img2.png?raw=true" />
+        <div class="img-hint">Click to enlarge</div>
+      </div>
+      <!-- Решта картин -->
+      <div class="gallery-item anthro">
+        <img src="https://github.com/KellieChi/site-images/blob/main/imgp10.png?raw=true" />
+        <div class="img-hint">Click to enlarge</div>
+      </div>
+      <div class="gallery-item anthro">
+        <img src="https://github.com/KellieChi/site-images/blob/main/imgp18.png?raw=true" />
+        <div class="img-hint">Click to enlarge</div>
+      </div>
+      <div class="gallery-item anthro">
+        <img src="https://github.com/KellieChi/site-images/blob/main/imgp21.png?raw=true" />
+        <div class="img-hint">Click to enlarge</div>
+      </div>
+      <div class="gallery-item anthro">
+        <img src="https://github.com/KellieChi/site-images/blob/main/imgp6.png?raw=true" />
+        <div class="img-hint">Click to enlarge</div>
+      </div>
+      <div class="gallery-item anthro">
+        <img src="https://github.com/KellieChi/site-images/blob/main/imgp7.png?raw=true" />
+        <div class="img-hint">Click to enlarge</div>
+      </div>
+      <div class="gallery-item anthro">
+        <img src="https://github.com/KellieChi/site-images/blob/main/imgp8.png?raw=true" />
+        <div class="img-hint">Click to enlarge</div>
+      </div>
+      <div class="gallery-item anthro">
+        <img src="https://github.com/KellieChi/site-images/blob/main/imgp91.png?raw=true" />
+        <div class="img-hint">Click to enlarge</div>
+      </div>
+      <div class="gallery-item anthro">
+        <img src="https://github.com/KellieChi/site-images/blob/main/imgp20.jpg?raw=true" />
+        <div class="img-hint">Click to enlarge</div>
+      </div>
+      <div class="gallery-item anthro">
+        <img src="https://d.furaffinity.net/art/kelliechi/1758737032/1758737032.kelliechi_catty__1_.png" />
+        <div class="img-hint">Click to enlarge</div>
+      </div>
+      <div class="gallery-item anthro">
+        <img src="https://d.furaffinity.net/art/kelliechi/1756245738/1756245738.kelliechi_1000004615.png" />
+        <div class="img-hint">Click to enlarge</div>
+      </div>
+      <div class="gallery-item anthro">
+        <img src="https://d.furaffinity.net/art/kelliechi/1779813957/1779813957.kelliechi_pride_ych__2_.png" />
+        <div class="img-hint">Click to enlarge</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TOS ================= -->
+  <section id="tos" class="page-section">
+    <h2 class="section-title">₊˚ Terms of Service ₊˚</h2>
+    <div class="tos-box">
+      <h3>General Terms</h3>
+      <ul>
+        <li>All images contain a small watermark.</li>
+        <li>I reserve the right to decline any commission for any reason.</li>
+        <li>I accept gore, suggestive themes and artistic nudity, but I do not draw pornography.</li>
+      </ul>
+      <h3>Payment</h3>
+      <ul>
+        <li>Payment is accepted via PayPal.</li>
+        <li>Usually payment is 100% upfront after sketch approval.</li>
+        <li>Prices listed are for personal use only.</li>
+      </ul>
+      <h3>Process & Delivery</h3>
+      <ul>
+        <li>Turnaround time depends on complexity.</li>
+        <li>Usual deadline is between 3 days and 6 months.</li>
+        <li>Because I am based in Ukraine, delays may occur.</li>
+        <li>You will receive updates during the process.</li>
+      </ul>
+      <h3>Revisions</h3>
+      <ul>
+        <li>Sketch stage: unlimited revisions.</li>
+        <li>After approval, major changes may require extra payment.</li>
+      </ul>
+      <h3>Refunds & Cancellation</h3>
+      <ul>
+        <li>No refunds after work has started.</li>
+        <li>If I cannot complete the commission, full refund will be provided.</li>
+      </ul>
+      <h3>Copyright & Usage Policy</h3>
+      <ul>
+        <li>I retain rights to the artwork.</li>
+        <li>I may post artwork in my portfolio.</li>
+        <li>Buyer may use artwork as avatar, personal print or social media image.</li>
+        <li>Removing watermark or claiming artwork as your own is prohibited.</li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= МОДАЛЬНЕ ВІКНО ================= -->
+<div id="image-modal" class="modal">
+  <span class="modal-close">&times;</span>
+  <img id="modal-img" class="modal-content" />
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="social-links">
+    <a href="https://www.instagram.com/kellie_.chi/" target="_blank" rel="noopener noreferrer" class="social-icon">Instagram</a>
+    <a href="https://www.tiktok.com/@kellie_chi" target="_blank" rel="noopener noreferrer" class="social-icon">TikTok</a>
+    <a href="https://trello.com/b/nuoIVslO/%E2%98%86kelliechi-commission-info%E2%98%86" target="_blank" rel="noopener noreferrer" class="social-icon">Trello</a>
+    <a href="https://www.furaffinity.net/user/kelliechi" target="_blank" rel="noopener noreferrer" class="social-icon">Furaffinity</a>
+    <a href="https://artfight.net/~Kellie_Chi" target="_blank" rel="noopener noreferrer" class="social-icon">Artfight</a>
+    <a href="https://web.telegram.org/k/#@Kellie_Chi_Nogitsune" target="_blank" rel="noopener noreferrer" class="social-icon">Telegram</a>
+  </div>
+  <p> 2026 Kellie_Chi. All rights reserved.</p>
+</footer>
+<!-- ================= JS ================= -->
+<script>
+// ===================== PAGE НАВІГАЦІЯ =====================
+const buttons = document.querySelectorAll(".site-nav .nav-btn");
+const pages = document.querySelectorAll(".page-section");
+
+buttons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    buttons.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    const target = btn.dataset.target;
+    pages.forEach(page => {
+      page.classList.toggle("active-section", page.id === target);
+    });
+  });
+});
+
+// ===================== ФІЛЬТРАЦІЯ ГАЛЕРЕЇ =====================
+const filterButtons = document.querySelectorAll(".gallery-btn");
+const galleryItems = document.querySelectorAll(".gallery-item");
+
+filterButtons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    filterButtons.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    const category = btn.dataset.cat;
+    galleryItems.forEach(item => {
+      if (category === "all" || item.classList.contains(category)) {
+        item.style.display = "block";
+      } else {
+        item.style.display = "none";
+      }
+    });
+  });
+});
+
+// ===================== МОДАЛЬ =====================
+const modal = document.getElementById("image-modal");
+const modalImg = document.getElementById("modal-img");
+const close = document.querySelector(".modal-close");
+
+galleryItems.forEach(item => {
+  const img = item.querySelector("img");
+  img.addEventListener("click", () => {
+    modal.style.display = "flex";
+    modalImg.src = img.src;
+  });
+});
+
+close.onclick = () => {
+  modal.style.display = "none";
+};
+
+modal.onclick = e => {
+  if (e.target === modal) modal.style.display = "none";
+};
+
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") modal.style.display = "none";
+});
+</script>
 </body>
 </html>
