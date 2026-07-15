@@ -1,199 +1,581 @@
+/* ОБНУЛЕННЯ СТИЛІВ */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --bg-dark: #0a1118;       /* Глибока морська вода */
+    --card-bg: #111e29;       /* Світліша хвиля */
+    --cyan-glow: #3cd4df;     /* Яскрава бірюза */
+    --sand-gold: #f3cd8c;     /* Жовтий теплий пісок */
+    --text-main: #e2f1f5;     /* Чистий світлий відтінок */
+    --desc-accent: #a3f4ff;   /* Ніжно-бірюзовий колір для підсвічування описів */
 }
 
 body {
-    background-color: #0d0e15;
-    color: #e2e8f0;
-    font-family: 'Rajdhani', sans-serif;
-    letter-spacing: 1px;
-    padding: 40px 20px;
-    min-height: 100vh;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Montserrat', sans-serif;
+    padding-bottom: 60px;
+    overflow-x: hidden; /* Захист від горизонтального скролу */
+}
+
+/* ГОЛОВНИЙ БАНЕР */
+.profile-banner {
+    position: relative;
+    height: 350px;
+    background: linear-gradient(rgba(10, 17, 24, 0.2), rgba(10, 17, 24, 0.6)), 
+                url('https://media.discordapp.net/attachments/944266867281895426/1522005694205657098/IMG_20260613_162310_205.jpg?ex=6a576082&is=6a560f02&hm=861300d05b5212496a430761953e3409861430876bc7327c5392fd64b1181ce1&format=webp&width=2239&height=1218');
+    background-size: cover;
+    background-position: center;
     display: flex;
-    flex-direction: column;
+    align-items: flex-end;
+    padding: 40px;
+    border-bottom: 3px solid var(--cyan-glow);
+    overflow: hidden;
+}
+
+.banner-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to top, rgba(10, 17, 24, 0.85) 0%, rgba(10, 17, 24, 0.1) 100%);
+    z-index: 1;
+}
+
+.profile-info {
+    display: flex;
     align-items: center;
+    gap: 25px;
+    z-index: 2;
+    width: 100%;
 }
 
-header {
+/* АВАТАРКА */
+.avatar-container {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 3.5px solid var(--sand-gold);
+    background-color: var(--card-bg);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 25px rgba(243, 205, 140, 0.4);
+    flex-shrink: 0;
+}
+
+.profile-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-text {
+    flex-grow: 1;
+}
+
+.profile-name {
+    font-family: "Comic Sans MS", "Comic Sans", "Chalkboard SE", "Comic Neue", cursive !important;
+    font-size: 4.2rem;
+    font-weight: 900;
+    letter-spacing: -1px;
+    display: inline-block;
+    background: linear-gradient(to right, #ffff92 15%, #9ffefe 50%, #74d4ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(4px 4px 0px var(--bg-dark));
+}
+
+.sub-tags {
+    color: #94b2c5;
+    margin-top: 5px;
+    font-weight: 500;
+    text-shadow: 0 1px 5px rgba(0,0,0,0.5);
+}
+
+.status-badge {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.85rem;
+    background: rgba(60, 212, 223, 0.2);
+    border: 1px solid var(--cyan-glow);
+    color: var(--cyan-glow);
+    box-shadow: 0 0 10px rgba(60, 212, 223, 0.2);
+}
+
+/* НАВІГАЦІЯ */
+.site-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 0;
+    padding: 0 20px;
+}
+
+.nav-btn {
+    text-decoration: none;
+    color: var(--text-main);
+    padding: 10px 25px;
+    border-radius: 12px;
+    background: var(--card-bg);
+    border: 1px solid rgba(60, 212, 223, 0.2);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    outline: none;
+}
+
+.nav-btn:hover, .nav-btn.active {
+    background: var(--cyan-glow);
+    color: #000;
+    box-shadow: 0 0 15px rgba(60, 212, 223, 0.4);
+    border-color: var(--cyan-glow);
+}
+
+/* ГОЛОВНИЙ КОНТЕЙНЕР ОБМЕЖЕННЯ ШИРИНИ НА ПК */
+.main-container {
+    max-width: 1000px; 
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    color: var(--sand-gold);
+    border-left: 4px solid var(--cyan-glow);
+    padding-left: 15px;
+}
+
+/* КАТЕГОРІЇ ПРАЙСУ */
+.price-category-group {
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.category-header {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.35rem;
+    color: var(--sand-gold);
+    margin-bottom: 15px;
+    border-bottom: 1.5px solid rgba(60, 212, 223, 0.15);
+    padding-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+/* ДВОКОЛОНКОВИЙ РЯД ДЛЯ ЧІБІ ТА РЕФІВ НА ПК */
+.desktop-split-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+/* СІТКА ДЛЯ CARTOON / ANIME */
+.grid-container {
+    display: grid;
+    gap: 25px;
+}
+
+.row-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* СТИЛЬ КАРТОК ПРАЙСУ */
+.art-card {
+    background: var(--card-bg);
+    border-radius: 18px;
+    border: 1px solid rgba(60, 212, 223, 0.15);
+    padding: 25px;
+    width: 100%;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.art-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--cyan-glow);
+    box-shadow: 0 8px 20px rgba(60, 212, 223, 0.15);
+}
+
+.card-banner-slot {
+    width: 100%;
+    height: 500px;
+    background: #182a3a;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #53758d;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 18px;
+    border: 1px dashed rgba(60, 212, 223, 0.3);
+    overflow: hidden; 
+}
+
+.card-banner-slot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.art-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    color: var(--text-main);
+}
+
+/* ПІДСВІЧЕННЯ ТЕКСТУ-ОПИСУ КАТЕГОРІЇ */
+.card-desc.highlight-desc {
+    color: var(--desc-accent);
+    font-size: 0.9rem;
+    line-height: 1.45;
+    margin-bottom: 15px;
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(163, 244, 255, 0.15);
+}
+
+.price-tier p {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.price-tier span {
+    color: var(--sand-gold);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* ГАЛЕРЕЯ */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Це зафіксує рівно 3 колонки */
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    width: 100%;        /* Гарантує, що елемент займає всю ширину колонки */
+    aspect-ratio: 1 / 1; /* Робить елемент квадратом (ширина = висоті) */
+    background: #182a3a;
+    border-radius: 14px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+    border-color: var(--cyan-glow);
+    box-shadow: 0 0 20px rgba(60, 212, 223, 0.2);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.img-hint {
+    position: absolute;
+    bottom: 0; width: 100%;
+    background: rgba(0, 0, 0, 0.7);
     text-align: center;
-    margin-bottom: 50px;
+    padding: 8px;
+    font-size: 0.85rem;
+    opacity: 0; 
+    transition: opacity 0.3s;
 }
 
-h1.neon-text {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 3rem;
-    color: #fff;
-    text-shadow: 0 0 5px #fff, 0 0 10px #ff007f, 0 0 20px #ff007f, 0 0 40px #ff007f;
+.gallery-item:hover .img-hint {
+    opacity: 1;
+}
+
+/* TOS */
+.tos-box {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 30px;
+    border-left: 4px solid var(--sand-gold);
+}
+
+.tos-box h3 {
+    color: var(--sand-gold);
+    margin: 20px 0 10px 0;
+}
+
+.tos-box h3:first-child { margin-top: 0; }
+
+.tos-box ul {
+    list-style-position: inside;
+    color: #b0cbdc;
+}
+
+.tos-box li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+/* БЛОК БЕКГРАУНДІВ */
+.bg-pricing-box {
+    margin-top: 30px;
+    background-color: var(--card-bg);
+    border: 1.5px dashed rgba(60, 212, 223, 0.4);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
+    width: 100%;
+}
+
+.bg-box-title {
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--sand-gold);
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+}
+
+.bg-box-intro {
+    color: #94b2c5;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+
+.free-badge {
+    color: var(--cyan-glow);
+    font-weight: 700;
+    text-shadow: 0 0 8px rgba(60, 212, 223, 0.4);
+}
+
+.bg-tiers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.bg-tier-card {
+    background: #0f1c27;
+    border-radius: 12px;
+    padding: 18px;
+    border: 1px solid rgba(60, 212, 223, 0.15);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.bg-tier-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--cyan-glow);
+}
+
+.bg-tier-card h4 {
+    color: var(--sand-gold);
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.bg-price {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--cyan-glow);
     margin-bottom: 10px;
 }
 
-.status {
-    font-size: 1.4rem;
-    font-weight: bold;
-    color: #00ff66;
-    text-shadow: 0 0 10px #00ff66;
-    text-transform: uppercase;
+.bg-tier-card p {
+    color: #b0cbdc;
+    font-size: 0.85rem;
+    line-height: 1.45;
 }
 
-.price-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    max-width: 1100px;
-    width: 100%;
-}
-
-.price-card {
-    background: rgba(20, 21, 33, 0.7);
-    border-radius: 16px;
+/* ФУТЕР */
+.site-footer {
+    text-align: center;
+    margin-top: 40px;
     padding: 30px;
+    border-top: 1px solid rgba(60, 212, 223, 0.1);
+}
+
+.social-links {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: relative;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.social-icon {
+    color: var(--cyan-glow);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: var(--sand-gold);
+}
+
+/* МОДАЛКА */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0; width: 100%; height: 100%;
+    background-color: rgba(10, 17, 24, 0.95);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
     backdrop-filter: blur(5px);
 }
 
-.price-card:hover {
-    transform: translateY(-5px);
+.modal-content {
+    max-width: 90%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 12px;
+    border: 2px solid var(--cyan-glow);
+    box-shadow: 0 0 30px rgba(60, 212, 223, 0.3);
+    animation: zoomIn 0.3s ease;
 }
 
-.price-card.cyan {
-    border: 2px solid #00f0ff;
-    box-shadow: 0 0 15px rgba(0, 240, 255, 0.15);
-}
-.price-card.cyan:hover {
-    box-shadow: 0 0 25px rgba(0, 240, 255, 0.4);
-}
-.price-card.cyan .order-btn {
-    background: transparent;
-    border: 2px solid #00f0ff;
-    color: #00f0ff;
-    box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
-}
-.price-card.cyan .order-btn:hover {
-    background: #00f0ff;
-    color: #000;
-    box-shadow: 0 0 20px #00f0ff;
-}
-
-.price-card.pink {
-    border: 2px solid #ff007f;
-    box-shadow: 0 0 15px rgba(255, 0, 127, 0.15);
-}
-.price-card.pink:hover {
-    box-shadow: 0 0 25px rgba(255, 0, 127, 0.5);
-}
-.price-card.pink .order-btn {
-    background: transparent;
-    border: 2px solid #ff007f;
-    color: #ff007f;
-    box-shadow: 0 0 10px rgba(255, 0, 127, 0.2);
-}
-.price-card.pink .order-btn:hover {
-    background: #ff007f;
-    color: #000;
-    box-shadow: 0 0 20px #ff007f;
-}
-
-.price-card.purple {
-    border: 2px solid #a020f0;
-    box-shadow: 0 0 15px rgba(160, 32, 240, 0.15);
-}
-.price-card.purple:hover {
-    box-shadow: 0 0 25px rgba(160, 32, 240, 0.4);
-}
-.price-card.purple .order-btn {
-    background: transparent;
-    border: 2px solid #a020f0;
-    color: #a020f0;
-    box-shadow: 0 0 10px rgba(160, 32, 240, 0.2);
-}
-.price-card.purple .order-btn:hover {
-    background: #a020f0;
-    color: #000;
-    box-shadow: 0 0 20px #a020f0;
-}
-
-.card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 25px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding-bottom: 15px;
-}
-
-.card-header h2 {
-    font-size: 1.6rem;
-    font-weight: 600;
-}
-
-.price {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.8rem;
-    font-weight: 700;
-}
-
-.card-body ul {
-    list-style: none;
-    margin-bottom: 30px;
-}
-
-.card-body li {
-    margin-bottom: 12px;
-    font-size: 1.2rem;
-    color: #cbd5e1;
-    position: relative;
-    padding-left: 20px;
-}
-
-.card-body li::before {
-    content: "—";
+.modal-close {
     position: absolute;
-    left: 0;
-    color: rgba(255, 255, 255, 0.5);
-}
-
-.order-btn {
-    width: 100%;
-    padding: 12px;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1rem;
+    top: 20px; right: 35px;
+    color: var(--text-main);
+    font-size: 40px;
     font-weight: bold;
-    text-transform: uppercase;
-    border-radius: 8px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: color 0.3s;
 }
 
-.featured {
-    transform: scale(1.03);
+.modal-close:hover { color: var(--cyan-glow); }
+
+@keyframes zoomIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
 }
 
-.badge {
-    position: absolute;
-    top: -15px;
-    right: 20px;
-    background: #ff007f;
-    color: #000;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.8rem;
-    font-weight: bold;
-    padding: 4px 12px;
-    border-radius: 20px;
-    box-shadow: 0 0 10px #ff007f;
-    text-transform: uppercase;
+/* ДИНАМІЧНІ СЕКЦІЇ ТА ПЛАВНІСТЬ */
+.page-section {
+    display: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.page-section.active-section {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* АДАТИВНІСТЬ ТА МЕДІА-ЗАПИТИ */
+@media (max-width: 850px) {
+    .desktop-split-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
 }
 
 @media (max-width: 768px) {
-    .featured {
-        transform: scale(1);
+    .profile-banner { 
+        height: auto; 
+        padding: 40px 20px; 
+        flex-direction: column; 
+        align-items: center; 
+        text-align: center;
     }
-    h1.neon-text {
-        font-size: 2.2rem;
+    .profile-info { 
+        flex-direction: column; 
+        gap: 15px; 
+        align-items: center;
     }
+    .profile-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .profile-name {
+        font-size: 3rem; /* Захист від вилізання за край */
+    }
+    .site-nav { 
+        flex-wrap: wrap; 
+        gap: 10px;
+    }
+    .nav-btn {
+        padding: 8px 18px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-name {
+        font-size: 2.4rem; /* Оптимально для крихітних екранів */
+    }
+}
+/* АДАПТАЦІЯ ВИКЛЮЧНО ДЛЯ ТЕЛЕФОНІВ ТА НЕВЕЛИКИХ ПЛАНШЕТІВ */
+@media (max-width: 768px) {
+    .card-banner-slot {
+        height: 250px !important;
+    }
+    .gallery-item {
+        height: 200px !important;
+    }
+
+    .section-title {
+        font-size: 1.5rem !important;
+    }
+}
+/* Стабільна сітка для 20+ артів */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+    margin-top: 20px;
+    align-items: start; /* Це не дасть їм розтягуватися */
+}
+
+/* Щоб картинки завжди були одного розміру */
+.gallery-item {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+}
+  /* Приховування елементів при фільтрації */
+.gallery-item[style*="display: none"] {
+    display: none !important;
+}
+
+/* Корекція кнопок галереї, щоб вони не зливалися з основними */
+.gallery-btn {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.gallery-item.hidden{
+    display:none !important;
 }
